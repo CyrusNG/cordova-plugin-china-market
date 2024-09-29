@@ -37,7 +37,7 @@ You can also add a success and failure callback like this:
 
 Package visibility was introduced in Android 11 (API level 30) and changes the way apps can query or interact with other apps the user has installed on a device. Using the <queries> element, apps can define the set of other packages that they can access.
 
-So pelease add following <queries>:
+So Cordova will auto add following <queries> into AndroidManifest.xml:
 
 ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -58,13 +58,14 @@ So pelease add following <queries>:
     ...
     ...
     ...
+    
 </manifest>
 ```
 
 # Release Notes
 
 
-Version 1.3
+Version 1.3.1
 
 * Removed API to search apps in Play Store
 
