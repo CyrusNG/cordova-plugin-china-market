@@ -1,7 +1,7 @@
 cordova-plugin-china-market
 =====================
 
-Cordova (PhoneGap) 3.0+ plugin to open an application on native Marketplace app, aka Play Store for Android or App Store for iOS.
+Cordova (PhoneGap) 3.0+ plugin to open an application on native Marketplace app aka Mi Store, Vivo Store, Oppo Store, Honor Store, Huawei Store, Meizu Store, Samsung Store, Play Store for Android or App Store for iOS.
 Currently this plugin is compatible only with Android and iOS. Feel free to add support for the platform you need!
 
 # Installation
