@@ -11,10 +11,6 @@ var Market = {
         return await this._callNative('open', [appId]);
     },
 
-    search: async function (key) {
-        return await this._callNative('search', [key]);
-    },
-
     /**
      * general error function
      * @return {void}

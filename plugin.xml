@@ -6,7 +6,7 @@
     <license>Apache 2.0</license>
     <keywords>cordova,market,store,itunes,play</keywords>
     <js-module src="www/market.js" name="Market">
-        <clobbers target="cordova.plugins.market" />
+        <clobbers target="Market" />
     </js-module>
 
     <platform name="android">
@@ -14,6 +14,19 @@
             <feature name="Market">
                 <param name="android-package" value="com.cordova.market.china.Market"/>
             </feature>
+        </config-file>
+         <config-file target="AndroidManifest.xml" parent="/manifest/application">
+            <!-- Package Visibility @ Android 11+ (API level 30+)  -->
+            <queries>
+                <package android:name="com.xiaomi.market" />
+                <package android:name="com.bbk.appstore" />
+                <package android:name="com.oppo.market" />
+                <package android:name="com.hihonor.appmarket" />
+                <package android:name="com.huawei.appmarket" />
+                <package android:name="com.meizu.mstore" />
+                <package android:name="com.sec.android.app.samsungapps" />
+                <package android:name="com.android.vending" />
+            </queries>
         </config-file>
         <source-file src="src/android/Market.java" target-dir="src/com/cordova/market/china" />
     </platform>

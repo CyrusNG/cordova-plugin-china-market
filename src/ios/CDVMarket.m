@@ -15,21 +15,31 @@
 - (void)open:(CDVInvokedUrlCommand *)command
 {
     [self.commandDelegate runInBackground:^{
+        // get arguments
         NSArray *args = command.arguments;
+        // get app id
         NSString *appId = [args objectAtIndex:0];
-        
-        CDVPluginResult *pluginResult;
-        if (appId) {
-            NSString *url = [NSString stringWithFormat:@"itms-apps://itunes.apple.com/app/%@", appId];
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
-            
-            pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
+        // check app id
+        if ([appId isEqual:[NSNull null]] || [appId isEqual:@""]) {
+            // return error to cordova
+            [self.commandDelegate sendPluginResult:[CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"Invalid appId"] callbackId:command.callbackId];
         } else {
-            pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"Invalid application id: null was found"];
+            // generate url
+            NSString *url = [NSString stringWithFormat:@"itms-apps://itunes.apple.com/app/%@", appId];
+            // open app store
+            float systemVersionNum = [[[UIDevice currentDevice] systemVersion] floatValue];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if(systemVersionNum >= 10.0){
+                    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url] options:@{} completionHandler:nil];
+                } else {
+                    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
+                }
+            });
+            // return ok to cordova
+            [self.commandDelegate sendPluginResult:[CDVPluginResult resultWithStatus:CDVCommandStatus_OK] callbackId:command.callbackId];
         }
-        
-        [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
     }];
+
 }
 
 @end

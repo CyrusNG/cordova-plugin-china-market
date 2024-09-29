@@ -14,50 +14,63 @@ This plugin follows the Cordova 3.0 plugin spec, so it can be installed through 
 
 When you want to open the device's store do this:
 
-* For Android use the app's package:
+* For Android use the app's package, default is the app package name:
 
-    `cordova.plugins.market.open('your.app.package')`
+    `Market.open('your.app.package')`
 
-* For iOS, first you need to create an easy-to-read link to your app using App Store Short Links, then use the app name
+* For iOS, first you need to create an easy-to-read link to your app using App Store Short Links, then use the app name:
 
-    `cordova.plugins.market.open('yourappname')`
+    `Market.open('yourappname')`
 
 This will open the link `itms-apps://itunes.apple.com/app/yourappname`. Alternatively you can use your app's id that should be similar to `id284815942`
 
 You can also add a success and failure callback like this:
 
-    var appId = "...";
-    cordova.plugins.market.open(appId, {
-      success: function() {
-        // Your stuff here
-      },
-      error: function() {
-        // Your stuff here
-      }
-    })
+    try {
+      await Market.open(appId);
+    } catch(e) {
+      //can NOT find any matched market
+    }
 
-  When you want to search for apps with keyword:
 
-  * For Android use the app's package:
+# For Android 11 + 
 
-      `cordova.plugins.market.search('keyword')`
+Package visibility was introduced in Android 11 (API level 30) and changes the way apps can query or interact with other apps the user has installed on a device. Using the <queries> element, apps can define the set of other packages that they can access.
 
-  * For iOS, no support yet
+So pelease add following <queries>:
 
-  You can also add a success and failure callback like this:
+```
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
 
-      var keyword = "gmail";
-      cordova.plugins.market.search(keyword, {
-        success: function() {
-          // Your stuff here
-        },
-        error: function() {
-          // Your stuff here
-        }
-      })
+    <!-- Package Visibility @ Android 11+ (API level 30+)  -->
+    <queries>
+      <package android:name="com.xiaomi.market" />
+      <package android:name="com.bbk.appstore" />
+      <package android:name="com.oppo.market" />
+      <package android:name="com.hihonor.appmarket" />
+      <package android:name="com.huawei.appmarket" />
+      <package android:name="com.meizu.mstore" />
+      <package android:name="com.sec.android.app.samsungapps" />
+      <package android:name="com.android.vending" />
+    </queries>
 
+    ...
+    ...
+    ...
+</manifest>
+```
 
 # Release Notes
+
+
+Version 1.3
+
+* Removed API to search apps in Play Store
+
+* Android support Mi Store, Vivo Store, Oppo Store, Honor Store, Huawei Store, Meizu Store, Samsung Store, Play Store
+
+* iOS support App Store
 
 Version 1.2
 
