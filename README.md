@@ -1,4 +1,4 @@
-cordova-plugin-market
+cordova-plugin-china-market
 =====================
 
 Cordova (PhoneGap) 3.0+ plugin to open an application on native Marketplace app, aka Play Store for Android or App Store for iOS.
@@ -8,7 +8,7 @@ Currently this plugin is compatible only with Android and iOS. Feel free to add 
 
 This plugin follows the Cordova 3.0 plugin spec, so it can be installed through the Cordova CLI in your existing Cordova project:
 
-    cordova plugin add https://github.com/xmartlabs/cordova-plugin-market
+    cordova plugin add https://github.com/CyrusNG/cordova-plugin-china-market
 
 # How to use it
 
@@ -71,12 +71,4 @@ Version 1.0
 
 * Initial release: support for open Play Store or iTunes with an Application ID
 
-# Contact
 
-If you are using cordova-plugin-market in your app and have any suggestion or question:
-
-Enrique Galindo, <enrique@xmartlabs.com>
-
-Miguel Revetria, <miguel@xmartlabs.com>
-
-[@xmartlabs](http://twitter.com/xmartlabs "@xmartlabs")

@@ -1,7 +1,7 @@
 //
 //  CDVMarket.h
 //
-// Created by Miguel Revetria miguel@xmartlabs.com on 2014-03-17.
+// Created by Cyrus NG on 2024-09-29.
 // License Apache 2.0
 
 #import <Foundation/Foundation.h>

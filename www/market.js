@@ -1,6 +1,6 @@
 /**
  * Cordova Market plugin
- * Author: Miguel Revetria <miguel@xmartlabs.com>
+ * Author: Cyrus NG
  * License: Apache 2.0
  */
 var exec = require('cordova/exec');

@@ -1,9 +1,9 @@
 {
-  "name": "cordova-plugin-market",
+  "name": "cordova-plugin-china-market",
   "version": "1.2.0",
-  "description": "Cordova Plugin for access to Google Play and Apple Store within your app",
+  "description": "Cordova Plugin for access to Mi Store, Vivo Store, Oppo Store, Honor Store, Huawei Store, Meizu Store, Samsung Store, Google Play and Apple Store within your app",
   "cordova": {
-    "id": "cordova-plugin-market",
+    "id": "cordova-plugin-china-market",
     "platforms": [
       "android",
       "ios"
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/xmartlabs/cordova-plugin-market"
+    "url": "https://github.com/CyrusNG/cordova-plugin-china-market"
   },
   "keywords": [
     "cordova",
@@ -23,10 +23,10 @@
     "cordova-android",
     "cordova-ios"
   ],
-  "author": "Xmartlabs",
+  "author": "Cyrus NG",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/xmartlabs/cordova-plugin-market/issues"
+    "url": "https://github.com/CyrusNG/cordova-plugin-china-market/issues"
   },
-  "homepage": "https://github.com/xmartlabs/cordova-plugin-market#readme"
+  "homepage": "https://github.com/CyrusNG/cordova-plugin-china-market#readme"
 }

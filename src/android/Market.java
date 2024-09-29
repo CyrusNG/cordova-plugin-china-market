@@ -1,4 +1,4 @@
-package com.xmartlabs.cordova.market;
+package com.cordova.market.china;
 
 import org.apache.cordova.CordovaWebView;
 import org.apache.cordova.CallbackContext;
@@ -18,7 +18,7 @@ import android.util.Log;
 /**
  * Interact with Google Play.
  *
- * @author Miguel Revetria <miguel@xmartlabs.com>
+ * @author Cyrus NG
  * @license Apache 2.0
  */
 public class Market extends CordovaPlugin
