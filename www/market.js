@@ -5,17 +5,44 @@
  */
 var exec = require('cordova/exec');
 
-function Market() { }
+var Market = { 
 
-Market.prototype.open = function(appId, callbackContext) {
-    callbackContext = callbackContext || { };
-    exec(callbackContext.success || null, callbackContext.error || null, 'Market', 'open', [appId]);
-};
+    open: async function (appId) {
+        return await this._callNative('open', [appId]);
+    },
 
-Market.prototype.search = function(key, callbackContext) {
-    callbackContext = callbackContext || { };
-    exec(callbackContext.success || null, callbackContext.error || null, 'Market', 'search', [key]);
-};
+    search: async function (key) {
+        return await this._callNative('search', [key]);
+    },
 
-var market = new Market();
-module.exports = market;
+    /**
+     * general error function
+     * @return {void}
+     */
+    onError: function (error) {
+        console.log('Market Error: ' + error);
+    },
+
+    /**
+     * native function bridge
+     * @param  {string} name function name in native
+     * @param  {*[]} args function params in native
+     * @return {string|object} success: return data or string | error: throw { reason, message }
+     */
+    _callNative: function (name, args) {
+        return new Promise((resolve, reject) => exec(data => resolve(data), err => reject(err), 'Market', name, args));
+    },
+
+    /**
+     * native event bridge
+     * @param  {string} name function name in native
+     * @param  {function} handler function for processing event
+     * @return {void}
+     */
+    _bindNative: function (name, handler) {
+        exec(handler, this.onError, 'Market', name, []);
+    }
+
+}
+
+module.exports = Market;
